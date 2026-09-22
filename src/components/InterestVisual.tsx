@@ -10,6 +10,8 @@ const lineClass40 =
   'stroke-cyan-soft/70 [stroke-dashoffset:40] transition-[stroke-dashoffset] duration-[1100ms] ease-out group-hover:[stroke-dashoffset:0]'
 
 const dotClass = 'fill-cyan opacity-0 transition-opacity duration-700 group-hover:opacity-100'
+const dotStrokeClass =
+  'stroke-cyan opacity-0 transition-opacity duration-700 delay-500 group-hover:opacity-100'
 
 export function InterestVisual({ variant }: { variant: InterestKey }) {
   switch (variant) {
@@ -61,22 +63,13 @@ export function InterestVisual({ variant }: { variant: InterestKey }) {
         </svg>
       )
 
-    case 'programming':
-    case 'coding': {
-      const rows =
-        variant === 'programming'
-          ? [
-              { y: 22, x: 10, w: 90 },
-              { y: 42, x: 10, w: 130 },
-              { y: 62, x: 24, w: 70 },
-              { y: 82, x: 24, w: 110 },
-            ]
-          : [
-              { y: 22, x: 10, w: 60 },
-              { y: 42, x: 24, w: 150 },
-              { y: 62, x: 24, w: 100 },
-              { y: 82, x: 10, w: 80 },
-            ]
+    case 'programming': {
+      const rows = [
+        { y: 22, x: 10, w: 90 },
+        { y: 42, x: 10, w: 130 },
+        { y: 62, x: 24, w: 70 },
+        { y: 82, x: 24, w: 110 },
+      ]
       return (
         <svg viewBox="0 0 200 120" className="h-full w-full" aria-hidden="true">
           {rows.map((row, i) => (
@@ -145,6 +138,52 @@ export function InterestVisual({ variant }: { variant: InterestKey }) {
               height="6"
               className={dotClass}
               style={{ transitionDelay: `${i * 70 + 250}ms` }}
+            />
+          ))}
+        </svg>
+      )
+
+    case 'gaming':
+      return (
+        <svg viewBox="0 0 200 120" className="h-full w-full" aria-hidden="true">
+          <path
+            d="M60 40 H140 A20 20 0 0 1 160 60 V70 A16 16 0 0 1 132 82 L120 68 H80 L68 82 A16 16 0 0 1 40 70 V60 A20 20 0 0 1 60 40 Z"
+            fill="none"
+            pathLength={100}
+            className="stroke-cyan-soft/70 [stroke-dashoffset:100] transition-[stroke-dashoffset] duration-[1100ms] ease-out group-hover:[stroke-dashoffset:0]"
+            strokeWidth="1"
+            strokeDasharray="100"
+          />
+          <line x1="66" y1="58" x2="66" y2="70" className={dotStrokeClass} strokeWidth="2" />
+          <line x1="60" y1="64" x2="72" y2="64" className={dotStrokeClass} strokeWidth="2" />
+          <circle cx="132" cy="58" r="3" className={dotClass} style={{ transitionDelay: '500ms' }} />
+          <circle cx="146" cy="68" r="3" className={dotClass} style={{ transitionDelay: '600ms' }} />
+        </svg>
+      )
+
+    case 'travel':
+      return (
+        <svg viewBox="0 0 200 120" className="h-full w-full" aria-hidden="true">
+          <path
+            d="M20 95 C 60 20, 140 20, 180 90"
+            fill="none"
+            pathLength={100}
+            className="stroke-cyan-soft/60 [stroke-dashoffset:100] transition-[stroke-dashoffset] duration-[1200ms] ease-out group-hover:[stroke-dashoffset:0]"
+            strokeWidth="1"
+            strokeDasharray="4 4"
+          />
+          {[
+            [20, 95],
+            [100, 32],
+            [180, 90],
+          ].map(([cx, cy], i) => (
+            <circle
+              key={i}
+              cx={cx}
+              cy={cy}
+              r={i === 1 ? 2.4 : 3.2}
+              className={dotClass}
+              style={{ transitionDelay: `${i * 150 + 300}ms` }}
             />
           ))}
         </svg>

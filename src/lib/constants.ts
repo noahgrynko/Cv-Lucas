@@ -6,7 +6,7 @@ export const PERSON = {
   firstName: 'Lucas',
   lastName: 'Arnoult',
   formation: 'Seconde MTNE',
-  address: '6 Hameau Parc Er Mar',
+  address: '6 Hameau Parc Er Mare',
   phoneDisplay: '07 70 25 05 03',
   phoneHref: 'tel:0770250503',
   email: 'lucasarnoult1@gmail.com',
@@ -17,9 +17,23 @@ export const PERSON = {
 export const INTERESTS = [
   { key: 'cyber', label: 'Cybersécurité' },
   { key: 'programming', label: 'Programmation' },
-  { key: 'coding', label: 'Codage' },
   { key: 'it', label: 'Informatique' },
+  { key: 'gaming', label: 'Jeux vidéo' },
   { key: 'tech', label: 'Nouvelles technologies' },
+  { key: 'travel', label: 'Voyage' },
+] as const
+
+// From Lucas's own CV.
+export const LANGUAGES = [
+  { label: 'Anglais', level: 'LV1' },
+  { label: 'Espagnol', level: 'LV2' },
+] as const
+
+export const CERTIFICATIONS = ['Pix', 'Brevet', 'ASSR 1 & 2'] as const
+
+export const PAST_EXPERIENCE = [
+  { label: "Stage d'observation", field: 'Cybersécurité' },
+  { label: "Stage d'observation", field: 'Menuiserie' },
 ] as const
 
 export const QUALITIES = ['CURIOUS', 'SERIOUS', 'MOTIVATED', 'LEARNING'] as const
