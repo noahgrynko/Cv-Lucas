@@ -1,0 +1,110 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --color-void: #050609;
+  --color-abyss: #0a0e17;
+  --color-nightblue: #0c1424;
+  --color-panel: #0d1420;
+  --color-line: rgba(140, 170, 210, 0.12);
+  --color-line-strong: rgba(140, 170, 210, 0.22);
+  --color-fog: #8ca0b3;
+  --color-mist: #d7dee6;
+  --color-paper: #f5f7fa;
+  --color-cyan: #4ce0ff;
+  --color-cyan-soft: #7ff0ff;
+  --color-blue: #3b6dff;
+}
+
+::selection {
+  background: rgba(76, 224, 255, 0.22);
+  color: #f5f7fa;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: #050609;
+  color: #d7dee6;
+  font-family: var(--font-display);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  position: relative;
+  min-height: 100svh;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050609;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 170, 210, 0.2);
+  border-radius: 999px;
+  border: 2px solid #050609;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(76, 224, 255, 0.4);
+}
+
+a,
+button {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #4ce0ff;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cursor-none-desktop {
+    cursor: none;
+  }
+}
+
+.noise-overlay {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
