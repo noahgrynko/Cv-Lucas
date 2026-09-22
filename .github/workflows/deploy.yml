@@ -1,8 +1,10 @@
 name: Deploy to GitHub Pages
 
+# Deploy manually only: go to the "Actions" tab of this repo, open
+# "Deploy to GitHub Pages" in the left sidebar, then click "Run workflow"
+# (top right) and choose the branch to deploy. Automatic deploy-on-push is
+# intentionally disabled below.
 on:
-  push:
-    branches: [main, claude/lucas-arnoult-portfolio-iboczu]
   workflow_dispatch:
 
 permissions:
