@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/lucas-arnoult-portfolio-iboczu]
   workflow_dispatch:
 
 permissions:
